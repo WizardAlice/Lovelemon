@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'dva';
 import { Layout, Menu, Breadcrumb, Icon ,Row, Col} from 'antd';
-import LoginButton from '../components/LoginButton'
 import '../assets/style/layout.css'
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -45,7 +44,10 @@ export default class IndexPage extends React.Component {
         <Layout>
           <Header style={{ background: '#fff', padding: 0 }}>
             <Row  type="flex" justify="space-around" align="middle">
-              <Col span={2} offset={22}><a href="/#/login"><LoginButton /></a></Col>
+              <Col span={1} offset={21} className="topButton">
+                <a href="/#/login"><Icon type="login" /></a>
+                <a href="/#/register"><Icon type="plus-circle-o" /></a>
+              </Col>
             </Row>
           </Header>
           <Content style={{ margin: '0 16px' }}>

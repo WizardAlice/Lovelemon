@@ -17,3 +17,7 @@
 #components-layout-demo-side .ant-layout-sider-collapsed .ant-menu-submenu-vertical > .ant-menu-submenu-title:after {
   display: none;
 }
+
+.topButton{
+	font-size: 30px;
+}

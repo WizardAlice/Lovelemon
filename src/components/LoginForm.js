@@ -2,17 +2,23 @@ import React ,{Component} from 'react'
 import { Form, Icon, Input, Button, Checkbox } from 'antd'
 import "../assets/style/loginForm.css"
 
-const FormItem = Form.Item;
+const FormItem = Form.Item
 
 export default class NormalLoginForm extends Component{
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+        let data = {
+          userName:values.userName,
+          pwd:values.password
+        }
         fetch("http://localhost:3000/login", {
           method: "POST",
-          body: "111"
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          body: JSON.stringify(data)
         }).then((res)=>{console.log(res)})
       }
     })
