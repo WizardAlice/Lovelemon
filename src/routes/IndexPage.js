@@ -1,10 +1,35 @@
 import React from 'react';
 import { connect } from 'dva';
 import { Layout, Menu, Breadcrumb, Icon ,Row, Col} from 'antd';
+import ReactHighcharts from 'react-highcharts'
 import '../assets/style/layout.css'
 
 const { Header, Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
+
+const config = {
+  chart: {
+      type: 'column'
+  },
+  title: {
+      text: 'My first Highcharts chart'
+  },
+  xAxis: {
+      categories: ['苹果', '香蕉', '橙子']   //指定x轴分组
+  },
+  yAxis: {
+      title: {
+          text: 'something'
+      }
+  },
+   series: [{                                //指定数据列
+      name: '小明',                          //数据列名
+      data: [1, 0, 4]                        //数据
+  }, {
+      name: '小红',
+      data: [5, 7, 3]
+  }]
+}
 
 export default class IndexPage extends React.Component {
   state = {
@@ -56,7 +81,7 @@ export default class IndexPage extends React.Component {
               <Breadcrumb.Item>Bill</Breadcrumb.Item>
             </Breadcrumb>
             <div style={{ padding: 24, background: '#fff', minHeight: 770 }}>
-              Bill is a cat.
+              <ReactHighcharts config = {config}></ReactHighcharts>
               {this.props.children}
             </div>
           </Content>

@@ -1,5 +1,7 @@
 import React ,{Component} from 'react' 
 import { Form, Icon, Input, Button, Checkbox } from 'antd'
+import cookie from 'react-cookie'
+// import $ from 'jquery'
 import "../assets/style/loginForm.css"
 
 const FormItem = Form.Item
@@ -13,13 +15,24 @@ export default class NormalLoginForm extends Component{
           userName:values.userName,
           pwd:values.password
         }
+
         fetch("http://localhost:3000/login", {
           method: "POST",
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/json"
           },
           body: JSON.stringify(data)
-        }).then((res)=>{console.log(res)})
+        }).then((res)=>{
+          return res.json()
+        }).then((data)=>{
+          console.log(data.id)
+          cookie.save('userId',data.id,{ path: '/' })
+        })
+        // var res = $.ajax({
+        //   type: "POST",
+        //   url: "http://localhost:3000/login",
+        //   data: data
+        // }).responseJson
       }
     })
   }

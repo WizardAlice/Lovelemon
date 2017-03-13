@@ -5,7 +5,6 @@ import {residences} from '../assets/college.js'
 
 const FormItem = Form.Item
 const Option = Select.Option
-console.log(residences)
 
 
 export default class RegistrationForm extends Component{
