@@ -2,7 +2,7 @@
   float: right;
 }
 .login-form-button {
-  width: 100%;
+  width: 100%!important;
 }
 .loginButton{
 	font-size: 36px;

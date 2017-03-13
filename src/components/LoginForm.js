@@ -1,5 +1,5 @@
 import React ,{Component} from 'react' 
-import { Form, Icon, Input, Button, Checkbox } from 'antd'
+import { Form, Icon, Input, Button, Checkbox ,message} from 'antd'
 import cookie from 'react-cookie'
 // import $ from 'jquery'
 import "../assets/style/loginForm.css"
@@ -25,8 +25,16 @@ export default class NormalLoginForm extends Component{
         }).then((res)=>{
           return res.json()
         }).then((data)=>{
-          console.log(data.id)
-          cookie.save('userId',data.id,{ path: '/' })
+          if(data.id){
+            console.log(data.id)
+            cookie.save('userId',data.id,{ path: '/' })
+            message.success('登录成功！')
+          }
+          else{
+            message.error('密码错误或者用户不存在！');
+          }
+
+
         })
         // var res = $.ajax({
         //   type: "POST",
@@ -39,35 +47,37 @@ export default class NormalLoginForm extends Component{
   render(){
     const { getFieldDecorator } = this.props.form
     return (
-      <Form onSubmit={this.handleSubmit} className="login-form">
-        <FormItem>
-          {getFieldDecorator('userName', {
-            rules: [{ required: true, message: 'Please input your username!' }],
-          })(
-            <Input prefix={<Icon type="user" />} placeholder="Username" />
-          )}
-        </FormItem>
-        <FormItem>
-          {getFieldDecorator('password', {
-            rules: [{ required: true, message: 'Please input your Password!' }],
-          })(
-            <Input prefix={<Icon type="lock" />} type="password" placeholder="Password" />
-          )}
-        </FormItem>
-        <FormItem>
-          {getFieldDecorator('remember', {
-            valuePropName: 'checked',
-            initialValue: true,
-          })(
-            <Checkbox>Remember me</Checkbox>
-          )}
-          <a className="login-form-forgot">Forgot password</a>
-          <Button type="primary" htmlType="submit" className="login-form-button">
-            Log in
-          </Button>
-          Or <a>register now!</a>
-        </FormItem>
-      </Form>
+      <div>
+        <Form onSubmit={this.handleSubmit} className="login-form">
+          <FormItem>
+            {getFieldDecorator('userName', {
+              rules: [{ required: true, message: 'Please input your username!' }],
+            })(
+              <Input prefix={<Icon type="user" />} placeholder="Username" />
+            )}
+          </FormItem>
+          <FormItem>
+            {getFieldDecorator('password', {
+              rules: [{ required: true, message: 'Please input your Password!' }],
+            })(
+              <Input prefix={<Icon type="lock" />} type="password" placeholder="Password" />
+            )}
+          </FormItem>
+          <FormItem>
+            {getFieldDecorator('remember', {
+              valuePropName: 'checked',
+              initialValue: true,
+            })(
+              <Checkbox>Remember me</Checkbox>
+            )}
+            <a className="login-form-forgot">Forgot password</a>
+            <Button type="primary" htmlType="submit" className="login-form-button">
+              Log in
+            </Button>
+            Or <a>register now!</a>
+          </FormItem>
+        </Form>
+      </div>
     )
   }
 }
