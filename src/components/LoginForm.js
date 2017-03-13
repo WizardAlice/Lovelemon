@@ -42,8 +42,8 @@ export default class NormalLoginForm extends Component{
             this.loadingOff()
             message.error('密码错误或者用户不存在！');
           }
-
-
+        }).catch((err)=>{
+          this.loadingOff()
         })
         // var res = $.ajax({
         //   type: "POST",
