@@ -1,5 +1,5 @@
 import React ,{Component} from 'react' 
-import { Form, Icon, Input, Button, Checkbox ,message} from 'antd'
+import { Form, Icon, Input, Button, Checkbox ,message ,Spin} from 'antd'
 import cookie from 'react-cookie'
 // import $ from 'jquery'
 import "../assets/style/loginForm.css"
@@ -7,6 +7,13 @@ import "../assets/style/loginForm.css"
 const FormItem = Form.Item
 
 export default class NormalLoginForm extends Component{
+  state = { loading: false }
+  loadingOn(){
+    this.setState({loading:true})
+  }
+  loadingOff(){
+    this.setState({loading:false})
+  }
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
@@ -28,9 +35,11 @@ export default class NormalLoginForm extends Component{
           if(data.id){
             console.log(data.id)
             cookie.save('userId',data.id,{ path: '/' })
+            this.loadingOff()
             message.success('登录成功！')
           }
           else{
+            this.loadingOff()
             message.error('密码错误或者用户不存在！');
           }
 
@@ -47,7 +56,7 @@ export default class NormalLoginForm extends Component{
   render(){
     const { getFieldDecorator } = this.props.form
     return (
-      <div>
+      <Spin spinning={this.state.loading}>
         <Form onSubmit={this.handleSubmit} className="login-form">
           <FormItem>
             {getFieldDecorator('userName', {
@@ -71,13 +80,13 @@ export default class NormalLoginForm extends Component{
               <Checkbox>Remember me</Checkbox>
             )}
             <a className="login-form-forgot">Forgot password</a>
-            <Button type="primary" htmlType="submit" className="login-form-button">
+            <Button type="primary" htmlType="submit" className="login-form-button" onClick={()=>{this.loadingOn()}}>
               Log in
             </Button>
             Or <a>register now!</a>
           </FormItem>
         </Form>
-      </div>
+      </Spin>
     )
   }
 }
