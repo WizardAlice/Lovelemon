@@ -39,7 +39,7 @@ export default class Index extends React.Component{
         <Header>
           <Row type="flex" justify="space-around" align="middle">
             <Col span={10} offset={2} className="mainTop">
-              <a href='#'><img src="../assets/bg_logo.jpg" /><h1>图书馆</h1></a>
+              <a href='#'><img src={require(`../assets/logo.png`)}/></a>
             </Col>
             <Col span={12} >
               <InputGroup compact className="InputGroup1">
