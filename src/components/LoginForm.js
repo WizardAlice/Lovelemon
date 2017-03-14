@@ -33,10 +33,12 @@ export default class NormalLoginForm extends Component{
           return res.json()
         }).then((data)=>{
           if(data.id){
-            console.log(data.id)
-            cookie.save('userId',data.id,{ path: '/' })
             this.loadingOff()
             message.success('登录成功！')
+            cookie.save('userId',data.id)
+            history.back()
+            // cookie.remove('userId')
+            console.log(cookie.load('userId'))
           }
           else{
             this.loadingOff()
@@ -83,7 +85,7 @@ export default class NormalLoginForm extends Component{
             <Button type="primary" htmlType="submit" className="login-form-button" onClick={()=>{this.loadingOn()}}>
               Log in
             </Button>
-            Or <a>register now!</a>
+            Or <a href="/#/register">register now!</a>
           </FormItem>
         </Form>
       </Spin>

@@ -1,0 +1,50 @@
+#root{
+	background: -moz-linear-gradient(top, #000000 0%, #ffffff 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#000000), color-stop(100%,#ffffff));
+    background: -webkit-linear-gradient(top, #000000 0%,#ffffff 100%);
+    background: -o-linear-gradient(top, #000000 0%,#ffffff 100%);
+    background: -ms-linear-gradient(top, #000000 0%,#ffffff 100%);
+    background: linear-gradient(to bottom, #000000 0%,#ffffff 100%);
+}
+.ant-layout-header{
+	display: inline-block!important;
+}
+h1{
+	position: relative;
+	margin-top: -70px;
+	margin-left: 200px;
+}
+
+.InputGroup1 .ant-input-preSuffix-wrapper{
+	position: relative;
+	left:277px;
+	top:2px;
+}
+
+.ant-input-group{
+	width:60%;
+}
+.login{
+	position: relative;
+	top: -63px;
+	left: 565px;
+	font-size: 24px;
+	color: #fff;
+}
+.mainTop{
+	top:-35px;
+}
+.loginSpan{
+	font-size: 10px!important;
+}
+.ant-layout-content{
+	min-height: 1000px;
+}
+.topMenu{
+	background-color: transparent;
+	border-bottom: 1px #dedede solid;
+	padding-left: 170px;
+}
+.colorRed{
+	color:red;
+}

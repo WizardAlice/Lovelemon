@@ -13,8 +13,9 @@ export default class Register extends Component{
       visible: true,
     });
   }
+
   close(){
-  	history.back()
+    window.location.href='http://localhost:8000/#/'
   }
   render() {
     return (

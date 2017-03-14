@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'dva';
 import { Layout, Menu, Breadcrumb, Icon ,Row, Col} from 'antd';
 import ReactHighcharts from 'react-highcharts'
+import cookie from 'react-cookie'
 import '../assets/style/layout.css'
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -69,9 +70,14 @@ export default class IndexPage extends React.Component {
         <Layout>
           <Header style={{ background: '#fff', padding: 0 }}>
             <Row  type="flex" justify="space-around" align="middle">
-              <Col span={1} offset={21} className="topButton">
+            {cookie.load('userId')?
+              (<Col span={1} offset={21} className="topButton">
                 <a href="/#/login"><Icon type="login" /></a>
                 <a href="/#/register"><Icon type="plus-circle-o" /></a>
+              </Col>):null
+            }
+              <Col span={1} offset={21} className="topButton">
+                <a href="#"><img style={{height: 45,width:45}} src="http://ofdukoorb.bkt.clouddn.com/4rrqyqt8bxkw.png" /></a>
               </Col>
             </Row>
           </Header>
