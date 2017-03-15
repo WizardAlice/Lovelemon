@@ -9,11 +9,6 @@
 .ant-layout-header{
 	display: inline-block!important;
 }
-h1{
-	position: relative;
-	margin-top: -70px;
-	margin-left: 200px;
-}
 
 .InputGroup1 .ant-input-preSuffix-wrapper{
 	position: relative;
@@ -33,6 +28,18 @@ h1{
 }
 .mainTop{
 	top:-35px;
+	overflow: hidden;
+}
+.mainTop a img{
+	width: 248px;
+	margin-top: 24px;
+	filter: drop-shadow(197px 0 #fff);
+	border-right: 20px solid transparent;
+	left: -204px;
+	position: relative;
+}
+.mainTop a img:hover{
+	filter: drop-shadow(197px 0 #000);
 }
 .loginSpan{
 	font-size: 10px!important;
@@ -41,10 +48,13 @@ h1{
 	min-height: 1000px;
 }
 .topMenu{
-	background-color: transparent;
+	opacity: 0.5;
 	border-bottom: 1px #dedede solid;
 	padding-left: 170px;
 }
 .colorRed{
 	color:red;
+}
+.mainContainer{
+	margin-top: 5px;
 }

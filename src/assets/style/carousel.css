@@ -1,0 +1,40 @@
+.slick-track div{
+	width: 1000px;
+}
+.slick-track{
+	
+	margin-left: 150px;
+	height: 470px;
+}
+.slick-slide img{
+	width: 880px;
+	height: 350px;
+}
+.ant-carousel .slick-dots li button{
+	width: 39px;
+	height: 10px;
+}
+.ant-carousel .slick-dots li.slick-active button{
+	width: 66px;
+}
+.ant-carousel .slick-dots{
+	position: relative;
+	float: left;
+	top: -160px;
+	left: 273px;
+	text-align:center;
+}
+.ant-col-9 div h1{
+	color: #75a6c4;
+	padding: 5px 0 0 5px;
+	display: inline-block;
+}
+.oneNews p{
+	float: right;
+}
+.oneNews{
+	line-height: 30px;
+}
+.ant-col-9 .ant-card{
+	margin-left: 10px;
+}
