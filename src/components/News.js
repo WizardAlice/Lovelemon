@@ -8,7 +8,7 @@ let data = []
 
 export default class MainPage extends Component{
   state={
-    get : false
+    get : false,
   }
   componentDidMount(){
     fetch("http://localhost:3000/getNews5", {
@@ -20,13 +20,15 @@ export default class MainPage extends Component{
       return data.json()
     }).then((result)=>{
       result.map((res)=>{
-        data.push(res)
+        if(data.length<8)
+          data.push(res)
       })
       this.setState({get:true})
     })
   }
 
   render(){
+    console.log(data)
     return(
       <Row justify="space-around" align="middle">
         <Col span={13}>
@@ -36,7 +38,7 @@ export default class MainPage extends Component{
                 {
                   data.map((res)=>{
                     if(res.img)
-                      return (<div><img src={"http://ofdukoorb.bkt.clouddn.com/"+res.img}/></div>)
+                      return (<div><img className="img_of_news" src={"http://ofdukoorb.bkt.clouddn.com/"+res.img}/></div>)
                   })
                 }
               </Carousel>

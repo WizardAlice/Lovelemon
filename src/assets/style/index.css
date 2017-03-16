@@ -9,7 +9,9 @@
 .ant-layout-header{
 	display: inline-block!important;
 }
-
+.ant-layout-content{
+	background: -webkit-linear-gradient(top, rgb(255, 255, 255) 0%,rgb(0, 0, 0) 100%);
+}
 .InputGroup1 .ant-input-preSuffix-wrapper{
 	position: relative;
 	left:277px;
@@ -21,10 +23,19 @@
 }
 .login{
 	position: relative;
-	top: -63px;
-	left: 565px;
 	font-size: 24px;
 	color: #fff;
+}
+.userImg{
+	width: 55px;
+	height: 40px;
+	position: relative;
+	top: 12px;
+	left: 35px;
+}
+.ColLogin{
+	display: flex;
+	top:-32px;
 }
 .mainTop{
 	top:-35px;

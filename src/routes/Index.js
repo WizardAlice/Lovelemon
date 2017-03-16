@@ -41,7 +41,7 @@ export default class Index extends React.Component{
             <Col span={10} offset={2} className="mainTop">
               <a href='#'><img src={require(`../assets/logo.png`)}/></a>
             </Col>
-            <Col span={12} >
+            <Col span={12} className="ColLogin">
               <InputGroup compact className="InputGroup1">
                 <Select defaultValue="书籍搜索">
                   <Option value="book">书籍搜索</Option>
@@ -50,7 +50,11 @@ export default class Index extends React.Component{
                 </Select>
                 <Search className="search" placeholder="input search text" style={{ width: 200 }} onSearch={value => console.log(value)} />
               </InputGroup>
-              {cookie.load('userId')?(<a href='#' onClick={this.showConfirm} className="login"><Icon type="user"/><span className="loginSpan"></span></a>):(<a href='/#/login' className="login"><Icon type="user"/><span className="loginSpan">登录</span></a>)}
+              {cookie.load('userId')?(
+                <span><a href='#' onClick={this.showConfirm} className="login"><Icon type="user"/></a><img className="userImg" src={"http://ofdukoorb.bkt.clouddn.com/"+cookie.load('userimg')+".jpg"}></img></span>
+                ):(
+                <a href='/#/login' className="login"><Icon type="user"/><span className="loginSpan">登录</span></a>
+                )}
             </Col>
           </Row>
         </Header>

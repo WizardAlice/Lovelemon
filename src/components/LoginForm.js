@@ -36,6 +36,7 @@ export default class NormalLoginForm extends Component{
             this.loadingOff()
             message.success('登录成功！')
             cookie.save('userId',data.id)
+            cookie.save('userimg',data.img)
             history.back()
             // cookie.remove('userId')
             console.log(cookie.load('userId'))

@@ -1,0 +1,40 @@
+.bookClass{
+	width: 69%;
+	float: right;
+}
+.bookClass .ant-card .ant-card-body{
+	padding: 12px 9px;
+}
+.ant-card-bordered{
+	margin-bottom: 8px;
+}
+.subClass{
+	padding-left: 10px;
+}
+.ant-card-body .subClass a{
+	margin-right: 8px;
+	margin-left: 6px;
+	margin-bottom: 5px;
+	line-height: 25px;
+}
+.allClass{
+	text-align: center;
+	background-color: #1b6faf;
+	height: 33px;
+	border-radius: 4px;
+}
+.allClass a{
+	color:#fff;
+}
+.allClass a:hover{
+	color:#dedede;
+}
+.allClass i{
+	font-size: 20px;
+	float: left;
+	margin: 5px -50px 0 30px;
+}
+.hotContent{
+	width: 99%;
+	float: right;
+}

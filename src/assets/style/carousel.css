@@ -2,13 +2,16 @@
 	width: 1000px;
 }
 .slick-track{
-	
-	margin-left: 150px;
-	height: 470px;
+	height: 360px;
 }
 .slick-slide img{
 	width: 880px;
 	height: 350px;
+}
+.slick-list{
+	width: 85.5%;
+	margin-left: 150px;
+	float: right;
 }
 .ant-carousel .slick-dots li button{
 	width: 39px;
@@ -20,8 +23,8 @@
 .ant-carousel .slick-dots{
 	position: relative;
 	float: left;
-	top: -160px;
-	left: 273px;
+	top: -40px;
+	left: 380px;
 	text-align:center;
 }
 .ant-col-9 div h1{
@@ -37,4 +40,8 @@
 }
 .ant-col-9 .ant-card{
 	margin-left: 10px;
+}
+
+.ant-card-body{
+	padding: 21px;
 }
