@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import {Col ,Card,Tabs} from 'antd'
+import _ from 'lodash'
 
 const TabPane = Tabs.TabPane
 let data =[]
@@ -19,6 +20,7 @@ export default class Hot extends Component{
       result.map((res)=>{
           data.push(res)
       })
+      data = _.chunk(data,5)
       console.log(data)
       this.setState({get:true})
     })
@@ -35,7 +37,7 @@ export default class Hot extends Component{
                     data.length==0?null:(
                       <div className="novel">
                         {
-                          data.map((res)=>{
+                          data[0].map((res)=>{
                             if(res.img)
                               return (
                                 <Card style={{ width: 145,margin_right: "35px" }} bodyStyle={{ padding: 0 }}>
