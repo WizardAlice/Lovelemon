@@ -38,3 +38,13 @@
 	width: 99%;
 	float: right;
 }
+.novel div img{
+	width: 145px;
+	margin-right: 26px;
+}
+.novel .ant-card{
+	margin-right: 36px;
+}
+.novel{
+	display: inline-flex;
+}
