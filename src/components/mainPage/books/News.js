@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import { Carousel ,Row ,Col ,Icon ,Card} from 'antd'
-import '../assets/style/carousel.css'
+import '../../../assets/style/carousel.css'
 
 
 let data = []
@@ -28,7 +28,6 @@ export default class MainPage extends Component{
   }
 
   render(){
-    console.log(data)
     return(
       <Row justify="space-around" align="middle">
         <Col span={13}>
@@ -36,9 +35,9 @@ export default class MainPage extends Component{
             data.length==0?null:(
               <Carousel effect="fade" autoplay>
                 {
-                  data.map((res)=>{
+                  data.map((res,index)=>{
                     if(res.img)
-                      return (<div><img className="img_of_news" src={"http://ofdukoorb.bkt.clouddn.com/"+res.img}/></div>)
+                      return (<div key={index}><img className="img_of_news" src={"http://ofdukoorb.bkt.clouddn.com/"+res.img}/></div>)
                   })
                 }
               </Carousel>
@@ -49,9 +48,9 @@ export default class MainPage extends Component{
           {
             data.length==0?null:(
               <Card title="新闻" extra={<a href="#">More</a>}>
-                {data.map((res)=>{
+                {data.map((res,index)=>{
                   return (
-                    <div className="oneNews">
+                    <div className="oneNews" key={index}>
                       <a href={"/#/?news="+res.id}>{res.title}</a>
                       <p>{res.date}</p>
                       <hr />

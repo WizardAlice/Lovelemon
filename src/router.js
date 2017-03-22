@@ -1,7 +1,6 @@
 import React from 'react'
 import { Router, Route } from 'dva/router'
 import Index from './routes/Index'
-import product from './routes/Product'
 import Login from './routes/Login'
 import Register from './routes/Register'
 

@@ -2,7 +2,7 @@ import React from 'react'
 import cookie from 'react-cookie'
 import { Layout ,Row , Col ,InputNumber ,Select,Input,Icon, Menu,Modal,Affix} from 'antd'
 import '../assets/style/index.css'
-import MainPage from './MainPage'
+import MainPage from '../components/mainPage/MainPage'
 
 const InputGroup = Input.Group
 const Search = Input.Search

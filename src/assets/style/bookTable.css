@@ -38,13 +38,72 @@
 	width: 99%;
 	float: right;
 }
+.hotBorrow div .ant-card-head-title{
+	font-size: 16px;
+}
+.hotContent .ant-card .ant-card{
+	margin-bottom: 25px;
+}
 .novel div img{
 	width: 145px;
+	height: 200px;
 	margin-right: 26px;
 }
-.novel .ant-card{
+.novel .hotImg{
 	margin-right: 36px;
+}
+.novel .hotList{
+	width: 260px;
 }
 .novel{
 	display: inline-flex;
+}
+.bookname{
+	font-weight: 700;
+	text-align: center;
+	white-space: nowrap;
+	margin-bottom: 5px;
+}
+.bookname span{
+	height: 25px;
+	width: 25px;
+	background-color: #eeb414;
+	display: inline-block;
+	border-radius: 50%;
+	line-height: 23px;
+	text-align: center;
+}
+.hotList div a span{
+	height: 25px;
+	width: 25px;
+	background-color: #eeb414;
+	display: inline-block;
+	border-radius: 50%;
+	line-height: 23px;
+	text-align: center;
+	margin-right: 10px;
+}
+.hotList .ant-card-body div{
+	margin-bottom: 8px;
+}
+.hotList div a{
+	display: inline-flex;
+	color: #777777;
+}
+.newBooksImg .ant-card-body{
+	height: 100%;
+	display: inline-flex;
+}
+.newBooksImg .ant-card-body .custom-image{
+	height: 100%;
+	width: 36%;
+}
+.newBooksImg .ant-card-body .newBookName{
+	color:#787878;
+}
+.newBookName{
+	padding-left: 15px;
+}
+.newBookName div{
+	margin-bottom: 10px;
 }

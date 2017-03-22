@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
-import News from '../components/News'
-import BookTable from '../components/BookTable'
+import News from './books/News'
+import BookTable from './books/BookTable'
 
 export default class MainPage extends Component{
   render(){
