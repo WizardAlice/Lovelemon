@@ -51,7 +51,7 @@ export default class Index extends React.Component{
                 <Search className="search" placeholder="input search text" style={{ width: 200 }} onSearch={value => console.log(value)} />
               </InputGroup>
               {cookie.load('userId')?(
-                <span><a href='#' onClick={this.showConfirm} className="login"><Icon type="user"/></a><img className="userImg" src={"http://ofdukoorb.bkt.clouddn.com/"+cookie.load('userimg')+".jpg"}></img></span>
+                <span><a href='#' onClick={this.showConfirm} className="login"><Icon type="user"/></a><img className="userImg" src={"http://ofdukoorb.bkt.clouddn.com/"+cookie.load('userimg')}></img></span>
                 ):(
                 <a href='/#/login' className="login"><Icon type="user"/><span className="loginSpan">登录</span></a>
                 )}
@@ -60,13 +60,13 @@ export default class Index extends React.Component{
         </Header>
         <Content>
           <Affix>
-            <Menu className="topMenu" onClick={this.handleClick.bind(this)} selectedKeys={[this.state.current]} mode="horizontal">
+            <Menu className="topMenu" style={{ position: 'relative',zIndex: '5' }} onClick={this.handleClick.bind(this)} selectedKeys={[this.state.current]} mode="horizontal">
               <Menu.Item key="mail">
-                <Icon type="mail" />首页
+                 <a href="/#/"><Icon type="mail" />首页</a>
               </Menu.Item>
               {cookie.load('userId')?
                 (<Menu.Item key="app">
-                  <Icon type="appstore" />个人信息
+                  <a href="/#/userCenter"><Icon type="appstore" />个人信息</a>
                 </Menu.Item>):null
               }
               {cookie.load('userId')?
@@ -88,7 +88,7 @@ export default class Index extends React.Component{
           </Affix>
           {this.props.children||<MainPage />}
         </Content>
-        <Footer>Footer</Footer>
+        <Footer><h1>广告出租位？</h1></Footer>
       </Layout>
     )
   }

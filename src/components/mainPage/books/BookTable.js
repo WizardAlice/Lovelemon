@@ -3,6 +3,7 @@ import {Row , Col ,Card,Icon} from 'antd'
 
 import Category from './bookList/Category'
 import NewBooks from './bookList/NewBooks'
+import Comment from './hot/Comment'
 
 import HotBorrow from './hot/HotBorrow'
 import HotCollect from './hot/HotCollect'
@@ -31,10 +32,14 @@ export default class BookTable extends Component{
             <Card>
               <Row>
                 <Col span={6}>
-                  <HotChart />
+                  <HotChart type="pie"/>
                 </Col>
+                <Col span={18}>
+                  <HotChart type="vertical"/>
+                </Col>                
               </Row>
             </Card>
+            <Comment />
           </div>
         </Col>
       </Row>

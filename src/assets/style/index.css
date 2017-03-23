@@ -69,3 +69,14 @@
 .mainContainer{
 	margin-top: 5px;
 }
+.latestComment{
+	display: inline-flex;
+}
+.latestComment div .userImg{
+	position: relative;
+	left: 0px;
+	top: 30px;
+}
+.latestComment .ant-card{
+	margin-bottom: 5px!important;
+}

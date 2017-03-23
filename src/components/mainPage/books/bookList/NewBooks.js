@@ -16,6 +16,7 @@ export default class NewBooks extends Component{
       return data.json()
     }).then((result)=>{
       result.map((res)=>{
+        if(data.length<5)
           data.push(res)
       })
       this.setState({get:true})
