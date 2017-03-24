@@ -1,6 +1,6 @@
 import React from 'react'
 import cookie from 'react-cookie'
-import { Layout ,Row , Col ,InputNumber ,Select,Input,Icon, Menu,Modal,Affix} from 'antd'
+import { Layout ,Row , Col ,InputNumber ,Select,Input,Icon, Menu,Modal,Affix,BackTop} from 'antd'
 import '../assets/style/index.css'
 import MainPage from '../components/mainPage/MainPage'
 
@@ -36,6 +36,7 @@ export default class Index extends React.Component{
   render(){
     return(
       <Layout>
+        <BackTop />
         <Header>
           <Row type="flex" justify="space-around" align="middle">
             <Col span={10} offset={2} className="mainTop">
@@ -62,7 +63,7 @@ export default class Index extends React.Component{
           <Affix>
             <Menu className="topMenu" style={{ position: 'relative',zIndex: '5' }} onClick={this.handleClick.bind(this)} selectedKeys={[this.state.current]} mode="horizontal">
               <Menu.Item key="mail">
-                 <a href="/#/"><Icon type="mail" />首页</a>
+                 <a href="/#/"><Icon type="home" />首页</a>
               </Menu.Item>
               {cookie.load('userId')?
                 (<Menu.Item key="app">
