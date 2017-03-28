@@ -119,11 +119,10 @@ export default class Index extends React.Component{
               </Menu.Item>
             </Menu>
           </Affix>
-          {this.props.children||<MainPage />}
+          <MainPage>{this.props.children}</MainPage>
         </Content>
         <Footer><h1>广告出租位？</h1></Footer>
       </Layout>
     )
   }
-
 } 

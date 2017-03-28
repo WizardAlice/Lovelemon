@@ -2,13 +2,9 @@ import React,{Component} from 'react'
 import { Carousel ,Row ,Col ,Icon ,Card} from 'antd'
 import '../../../assets/style/carousel.css'
 
-
-let data = []
-
-
 export default class MainPage extends Component{
   state={
-    get : false,
+    data:[]
   }
   componentDidMount(){
     fetch("http://localhost:3000/getNews5", {
@@ -19,15 +15,12 @@ export default class MainPage extends Component{
     }).then((data)=>{
       return data.json()
     }).then((result)=>{
-      result.map((res)=>{
-        if(data.length<8)
-          data.push(res)
-      })
-      this.setState({get:true})
+      this.setState({data:result})
     })
   }
 
   render(){
+    let data = this.state.data
     return(
       <Row justify="space-around" align="middle">
         <Col span={13}>

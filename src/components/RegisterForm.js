@@ -132,6 +132,7 @@ export default class RegistrationForm extends Component{
         <FormItem
           {...formItemLayout}
           label="Phone Number"
+          className="registerNumber"
         >
           {getFieldDecorator('phone', {
             rules: [{ required: true, message: 'Please input your phone number!' }],

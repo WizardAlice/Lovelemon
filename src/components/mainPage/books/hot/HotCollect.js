@@ -17,6 +17,7 @@ export default class HotCollect extends Component{
     }).then((data)=>{
       return data.json()
     }).then((result)=>{
+      console.log(result)
       result.map((res)=>{
           data.push(res)
       })

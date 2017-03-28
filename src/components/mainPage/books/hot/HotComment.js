@@ -3,13 +3,12 @@ import {Col ,Card,Tabs} from 'antd'
 import _ from 'lodash'
 
 const TabPane = Tabs.TabPane
-let data =[]
 export default class HotComment extends Component{
   state ={
-    get : false
+    data:[]
   }
   componentDidMount(){
-    fetch("http://localhost:3000/getBookHot", {
+    fetch("http://localhost:3000/getHotComment", {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
@@ -17,14 +16,12 @@ export default class HotComment extends Component{
     }).then((data)=>{
       return data.json()
     }).then((result)=>{
-      result.map((res)=>{
-          data.push(res)
-      })
-      data = _.chunk(data,5)
-      this.setState({get:true})
+      result = _.chunk(result,5)
+      this.setState({data:result})
     })
   }
   render(){
+    let data = this.state.data
     return(
       <Card title="热门评论" className="hotBorrow"  extra={<a href="#">More</a>}>
         <Tabs type="card">
@@ -40,19 +37,19 @@ export default class HotComment extends Component{
                               <img src={"http://ofdukoorb.bkt.clouddn.com/"+res.img}/>
                             </div>
                             <div className="custom-card">
-                              <p className="bookname"><span>{index+1}</span>{res.bookname}</p>
+                              <p className="bookname"><span>{index+1}</span>{res.bookName}</p>
                             </div>
                           </Card>
                         )
                     })
                   }
                   <Card className="hotList">
-                  {
-                    data[1].map((res,index)=>{
+                  {data[1]?
+                    (data[1].map((res,index)=>{
                       return (
-                        <div key={index} ><a href="#"><span>{index+6}</span><h2>{res.bookname}</h2></a></div>
+                        <div key={index} ><a href="#"><span>{index+6}</span><h2>{res.bookName}</h2></a></div>
                       )
-                    })
+                    })):null
                   }
                   </Card>
                 </div>

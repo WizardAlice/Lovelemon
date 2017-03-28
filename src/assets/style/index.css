@@ -80,3 +80,9 @@
 .latestComment .ant-card{
 	margin-bottom: 5px!important;
 }
+.registerNumber .ant-input-wrapper{
+	width: 100%;
+}
+.registerNumber .ant-input-group-addon{
+	width: 26%;
+}
