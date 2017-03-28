@@ -14,14 +14,29 @@ const confirm = Modal.confirm
 
 export default class Index extends React.Component{
   state={
-    current:'mail'
+    current:'mail',
+    borrowInfo:[]
   }
   handleClick =(e)=>{
     this.setState({
       current: e.key
     })
   }
-
+  componentDidMount(){ //用户登录情况下，预览借阅信息
+    if(cookie.load('userId')){
+      fetch("http://localhost:3000/getBorrowInfo", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({id:cookie.load('userId')})
+      }).then((data)=>{
+        return data.json()
+      }).then((result)=>{
+        this.setState({borrowInfo:result})
+      })      
+    }
+  }
   showConfirm() {
     confirm({
       title: '是否退出登录?',
@@ -31,9 +46,11 @@ export default class Index extends React.Component{
       },
       onCancel() {}
     })
-  }
+  } 
 
   render(){
+    let data = this.state.borrowInfo
+    // console.log(data)
     return(
       <Layout>
         <BackTop />
@@ -72,14 +89,29 @@ export default class Index extends React.Component{
               }
               {cookie.load('userId')?
                 (<SubMenu title={<span><Icon type="setting" />借阅信息</span>}>
-                  <MenuItemGroup title="当前借阅">
-                    <Menu.Item key="setting:1">fetch请求后端数据之后遍历一遍</Menu.Item>
-                    <Menu.Item key="setting:2" className="colorRed">当前超期</Menu.Item>
-                  </MenuItemGroup>
-                  <MenuItemGroup title="当期预约">
-                    <Menu.Item key="setting:3">Option 3</Menu.Item>
-                    <Menu.Item key="setting:4">Option 4</Menu.Item>
-                  </MenuItemGroup>
+                  {data.length==0?null:
+                    (<MenuItemGroup title="当前借阅">
+                      {data[0].map((res,index)=>{
+                        if(res.isover=="0")
+                          return (<Menu.Item key={index}>{res.bookName}</Menu.Item>)
+                      })}
+                    </MenuItemGroup>)
+                  }
+                  {data.length==0?null:
+                    (<MenuItemGroup title="当前超期">
+                      {data[0].map((res,index)=>{
+                        if(res.isover=="1")
+                          return (<Menu.Item key={index} className="colorRed">{res.bookName}</Menu.Item>)
+                      })}
+                    </MenuItemGroup>)
+                  }
+                  {data.length==0?null:
+                    (<MenuItemGroup title="当前预约">
+                      {data[1].map((res,index)=>{
+                        return (<Menu.Item key={index}>{res.bookName}</Menu.Item>)
+                      })}
+                    </MenuItemGroup>)
+                  }
                 </SubMenu>):null
               }
             <Menu.Item key="alipay">

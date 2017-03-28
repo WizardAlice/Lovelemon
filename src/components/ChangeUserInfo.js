@@ -10,7 +10,7 @@ export default class ChangeInfo extends Component{
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log(values)
+        values.birthdate = moment(values.birthdate)._i
         let finalResult = [["id",this.props.data.id]]
         Object.entries(values).map((res)=>{
           if(typeof(res[1])!="undefined"){
@@ -23,6 +23,10 @@ export default class ChangeInfo extends Component{
             "Content-Type": "application/json"
           },
           body: JSON.stringify(finalResult)
+        }).then((res)=>{
+            return res.json()
+        }).then((data)=>{
+          console.log(data)
         })//在这里发送修改
       }
     });
@@ -60,7 +64,7 @@ export default class ChangeInfo extends Component{
             )}
           </h1></div>
         </FormItem>
-        <FormItem>
+        <FormItem >
           <div style={{color:"#fff"}}><h1><span>gender:</span> 
             {getFieldDecorator('gender',{initialValue:(data.gender=="女")?"female":"male"})(       
                 <Select style={{width:220}}>

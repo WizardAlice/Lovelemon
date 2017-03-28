@@ -4,6 +4,7 @@ import Index from './routes/Index'
 import Login from './routes/Login'
 import Register from './routes/Register'
 import UserInfo from './routes/UserInfo'
+import BorrowCenter from './routes/borrowCenter'
 
 function RouterConfig({ history }) {
   return (
@@ -12,6 +13,7 @@ function RouterConfig({ history }) {
       	<Route path="/login" component={ Login }/>
       	<Route path="/register" component={ Register }/>
       	<Route path="/userCenter" component={ UserInfo }/>
+      	<Route path="/borrowCenter" component={ BorrowCenter }/>
       </Route>
     </Router>
   );

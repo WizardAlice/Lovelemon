@@ -23,7 +23,6 @@ export default class Comment extends Component{
   }
   render(){
     let data = this.state.data
-    console.log(data)
     return (
       <Card title={<h4>大家都在...</h4>} style={{ height: 260}}>
         {
