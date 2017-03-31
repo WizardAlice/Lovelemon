@@ -1,0 +1,82 @@
+#root{
+	background: -moz-linear-gradient(top, #000000 0%, #ffffff 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#000000), color-stop(100%,#ffffff));
+    background: -webkit-linear-gradient(top, #000000 0%,#ffffff 100%);
+    background: -o-linear-gradient(top, #000000 0%,#ffffff 100%);
+    background: -ms-linear-gradient(top, #000000 0%,#ffffff 100%);
+    background: linear-gradient(to bottom, #000000 0%,#ffffff 100%);
+}
+.ant-layout-header{
+	display: inline-block!important;
+}
+.ant-layout-content{
+	background: -webkit-linear-gradient(top, rgb(255, 255, 255) 0%,rgb(0, 0, 0) 100%);
+}
+.InputGroup1 .ant-input-preSuffix-wrapper{
+	position: relative;
+	left:277px;
+	top:2px;
+}
+
+.ant-input-group{
+	width:60%;
+}
+.login{
+	position: relative;
+	font-size: 24px;
+	color: #fff;
+}
+.userImg{
+	width: 55px;
+	height: 40px;
+	position: relative;
+	top: 12px;
+	left: 35px;
+}
+.ColLogin{
+	display: flex;
+	top:-32px;
+}
+.mainTop{
+	top:-35px;
+	overflow: hidden;
+}
+.mainTop a img{
+	width: 248px;
+	margin-top: 24px;
+	filter: drop-shadow(197px 0 #fff);
+	border-right: 20px solid transparent;
+	left: -204px;
+	position: relative;
+}
+.mainTop a img:hover{
+	filter: drop-shadow(197px 0 #000);
+}
+.loginSpan{
+	font-size: 10px!important;
+}
+.ant-layout-content{
+	min-height: 1000px;
+}
+.topMenu{
+	opacity: 0.5;
+	border-bottom: 1px #dedede solid;
+	padding-left: 170px;
+}
+.colorRed{
+	color:red;
+}
+.mainContainer{
+	margin-top: 5px;
+}
+.latestComment{
+	display: inline-flex;
+}
+.latestComment div .userImg{
+	position: relative;
+	left: 0px;
+	top: 30px;
+}
+.latestComment .ant-card{
+	margin-bottom: 5px!important;
+}

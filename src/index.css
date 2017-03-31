@@ -3,3 +3,9 @@ html, body, :global(#root) {
   height: 100%;
 }
 
+#components-form-demo-normal-login .login-form-forgot {
+  float: right;
+}
+#components-form-demo-normal-login .login-form-button {
+  width: 100%;
+}

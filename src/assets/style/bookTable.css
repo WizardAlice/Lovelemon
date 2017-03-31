@@ -1,0 +1,109 @@
+.bookClass{
+	width: 69%;
+	float: right;
+}
+.bookClass .ant-card .ant-card-body{
+	padding: 12px 9px;
+}
+.ant-card-bordered{
+	margin-bottom: 8px;
+}
+.subClass{
+	padding-left: 10px;
+}
+.ant-card-body .subClass a{
+	margin-right: 8px;
+	margin-left: 6px;
+	margin-bottom: 5px;
+	line-height: 25px;
+}
+.allClass{
+	text-align: center;
+	background-color: #1b6faf;
+	height: 33px;
+	border-radius: 4px;
+}
+.allClass a{
+	color:#fff;
+}
+.allClass a:hover{
+	color:#dedede;
+}
+.allClass i{
+	font-size: 20px;
+	float: left;
+	margin: 5px -50px 0 30px;
+}
+.hotContent{
+	width: 99%;
+	float: right;
+}
+.hotBorrow div .ant-card-head-title{
+	font-size: 16px;
+}
+.hotContent .ant-card .ant-card{
+	margin-bottom: 25px;
+}
+.novel div img{
+	width: 145px;
+	height: 200px;
+	margin-right: 26px;
+}
+.novel .hotImg{
+	margin-right: 36px;
+}
+.novel .hotList{
+	width: 260px;
+}
+.novel{
+	display: inline-flex;
+}
+.bookname{
+	font-weight: 700;
+	text-align: center;
+	white-space: nowrap;
+	margin-bottom: 5px;
+}
+.bookname span{
+	height: 25px;
+	width: 25px;
+	background-color: #eeb414;
+	display: inline-block;
+	border-radius: 50%;
+	line-height: 23px;
+	text-align: center;
+}
+.hotList div a span{
+	height: 25px;
+	width: 25px;
+	background-color: #eeb414;
+	display: inline-block;
+	border-radius: 50%;
+	line-height: 23px;
+	text-align: center;
+	margin-right: 10px;
+}
+.hotList .ant-card-body div{
+	margin-bottom: 8px;
+}
+.hotList div a{
+	display: inline-flex;
+	color: #777777;
+}
+.newBooksImg .ant-card-body{
+	height: 100%;
+	display: inline-flex;
+}
+.newBooksImg .ant-card-body .custom-image{
+	height: 100%;
+	width: 36%;
+}
+.newBooksImg .ant-card-body .newBookName{
+	color:#787878;
+}
+.newBookName{
+	padding-left: 15px;
+}
+.newBookName div{
+	margin-bottom: 10px;
+}

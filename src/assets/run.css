@@ -1,0 +1,64 @@
+.ant-layout-header{
+    height:456px;
+    background: url(./1.jpg) 100%;
+}
+.ant-card {    
+    position: relative;
+    left: 161px;
+
+}
+.ant-layout-content{
+    min-height:550px;
+    height:15px;
+    background:none;
+    background-color: #7d7907;
+    
+}
+.anticon-user{
+    position: relative;
+    font-size: 40px;
+    left: 1792px;
+    top:23px;
+}
+.denglu{
+    position: relative;
+    font-size: 28px;
+    left: 53px;
+    top:-42px;
+}
+#components-form-demo-normal-login .login-form {
+  max-width: 300px;
+}
+#components-form-demo-normal-login .login-form-forgot {
+  float: right;
+}
+#components-form-demo-normal-login .login-form-button {
+  width: 100%;
+}
+.login-form-button{
+    position: relative;
+    top: 70px;
+}
+.username
+{
+    position: relative;
+    font-size: 28px;
+    left: 69px;
+    top:-42px;
+}
+#components-form-demo-validate-other .dropbox {
+  height: 180px;
+  line-height: 1.5;
+}
+.shangchuan{
+    position: relative;
+    top: 100px;
+    left: 12px;
+}
+.anticon-inbox{
+    color:rgba(238, 234, 73, 0.94)!important;
+}
+.ant-btn-primary{
+    background-color:rgba(238, 193, 73, 0.73)!important;
+    border-color: rgba(233, 200, 16, 0.95)!important;
+}
