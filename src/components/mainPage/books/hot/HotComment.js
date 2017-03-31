@@ -33,12 +33,14 @@ export default class HotComment extends Component{
                     data[0].map((res,index)=>{
                         return (
                           <Card style={{ width: 145,margin_right: "35px" }} className="hotImg" bodyStyle={{ padding: 0 }}  key={index}>
-                            <div className="custom-image">
-                              <img src={"http://ofdukoorb.bkt.clouddn.com/"+res.img}/>
-                            </div>
-                            <div className="custom-card">
-                              <p className="bookname"><span>{index+1}</span>{res.bookName}</p>
-                            </div>
+                            <a href={"/#/book?bookid="+res.id}>  
+                              <div className="custom-image">
+                                <img src={"http://ofdukoorb.bkt.clouddn.com/"+res.img}/>
+                              </div>
+                              <div className="custom-card">
+                                <p className="bookname"><span>{index+1}</span>{res.bookName}</p>
+                              </div>
+                            </a>
                           </Card>
                         )
                     })

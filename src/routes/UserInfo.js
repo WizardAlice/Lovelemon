@@ -17,7 +17,8 @@ export default class UserInfo extends Component{
       cropResult: null,
       loading: false,
       visible: false,
-      change:false
+      change:false,
+      current:'app'
     }
     this.cropImage = this.cropImage.bind(this);
     this.onChange = this.onChange.bind(this);
@@ -90,11 +91,12 @@ export default class UserInfo extends Component{
         this.setState(Object.assign({},this.state,res))     
       })
     })
+    this.props.callback(this.state.current)
   }
   render(){
     let data = this.state
     return(
-      <div className="UserInfo" style={{backgroundImage:'URL(http://ofdukoorb.bkt.clouddn.com/'+data.img+')',height:'1000px',backgroundSize:"100%"}}>
+      <div className="UserInfo" style={{backgroundImage:'URL(http://ofdukoorb.bkt.clouddn.com/'+cookie.load('userimg')+')',height:'1000px',backgroundSize:"100%"}}>
         <Card style={{ height: '100%',opacity:'0.5',backgroundColor:"#000",color:"#fff"}}>
         {this.state.change?(
           <div style={{textAlign:"center",position:"relative",top:170}}>

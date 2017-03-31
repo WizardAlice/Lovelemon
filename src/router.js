@@ -13,7 +13,7 @@ function RouterConfig({ history }) {
       	<Route path="/login" component={ Login }/>
       	<Route path="/register" component={ Register }/>
       	<Route path="/userCenter" component={ UserInfo }/>
-      	<Route path="/borrowCenter" component={ BorrowCenter }/>
+      	<Route path="/book" component={ BorrowCenter }/>
       </Route>
     </Router>
   );

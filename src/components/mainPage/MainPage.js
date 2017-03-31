@@ -8,7 +8,6 @@ export default class MainPage extends Component{
       <div className="mainContainer">
         <News />
         <BookTable  />
-        {this.props.children}
       </div>
     )
   }

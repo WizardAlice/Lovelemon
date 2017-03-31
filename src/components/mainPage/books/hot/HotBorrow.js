@@ -6,7 +6,8 @@ const TabPane = Tabs.TabPane
 let data =[]
 export default class HotBorrow extends Component{
   state ={
-    get : false
+    get : false,
+    data: []
   }
   componentDidMount(){
     fetch("http://localhost:3000/getBookHot", {
@@ -17,14 +18,12 @@ export default class HotBorrow extends Component{
     }).then((data)=>{
       return data.json()
     }).then((result)=>{
-      result.map((res)=>{
-          data.push(res)
-      })
-      data = _.chunk(data,5)
-      this.setState({get:true})
+      result = _.chunk(result,5)
+      this.setState({data:result})
     })
   }
   render(){
+    let data = this.state.data
     return(
       <Card title="热门借阅" className="hotBorrow"  extra={<a href="#">More</a>}>
         <Tabs type="card">
@@ -36,12 +35,14 @@ export default class HotBorrow extends Component{
                     data[0].map((res,index)=>{
                         return (
                           <Card style={{ width: 145,margin_right: "35px" }} className="hotImg" bodyStyle={{ padding: 0 }}  key={index}>
-                            <div className="custom-image">
-                              <img src={"http://ofdukoorb.bkt.clouddn.com/"+res.img}/>
-                            </div>
-                            <div className="custom-card">
-                              <p className="bookname"><span>{index+1}</span>{res.bookName}</p>
-                            </div>
+                            <a href={"/#/book?bookid="+res.bookID}>
+                              <div className="custom-image">
+                                <img src={"http://ofdukoorb.bkt.clouddn.com/"+res.img}/>
+                              </div>
+                              <div className="custom-card">
+                                <p className="bookname"><span>{index+1}</span>{res.bookName}</p>
+                              </div>
+                            </a>
                           </Card>
                         )
                     })

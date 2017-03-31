@@ -22,6 +22,10 @@ export default class Index extends React.Component{
       current: e.key
     })
   }
+
+  callback =(a)=>{
+    this.setState({current:a})
+  }
   componentDidMount(){ //用户登录情况下，预览借阅信息
     if(cookie.load('userId')){
       fetch("http://localhost:3000/getBorrowInfo", {
@@ -93,7 +97,7 @@ export default class Index extends React.Component{
                     (<MenuItemGroup title="当前借阅">
                       {data[0].map((res,index)=>{
                         if(res.isover=="0")
-                          return (<Menu.Item key={index}>{res.bookName}</Menu.Item>)
+                          return (<Menu.Item key={index}><a href={"/#/book?bookid="+res.id}>{res.bookName}</a></Menu.Item>)
                       })}
                     </MenuItemGroup>)
                   }
@@ -101,25 +105,27 @@ export default class Index extends React.Component{
                     (<MenuItemGroup title="当前超期">
                       {data[0].map((res,index)=>{
                         if(res.isover=="1")
-                          return (<Menu.Item key={index} className="colorRed">{res.bookName}</Menu.Item>)
+                          return (<Menu.Item key={index}><a href={"/#/book?bookid="+res.id}  style={{color:"red"}}>{res.bookName}</a></Menu.Item>)
                       })}
                     </MenuItemGroup>)
                   }
                   {data.length==0?null:
                     (<MenuItemGroup title="当前预约">
                       {data[1].map((res,index)=>{
-                        return (<Menu.Item key={index}>{res.bookName}</Menu.Item>)
+                        return (<Menu.Item key={index}><a href={"/#/book?bookid="+res.id}>{res.bookName}</a></Menu.Item>)
                       })}
                     </MenuItemGroup>)
                   }
                 </SubMenu>):null
               }
             <Menu.Item key="alipay">
-                <a href="https://ant.design" target="_blank" rel="noopener noreferrer">Navigation Four - Link</a>
+                <a href="/#/book" rel="noopener noreferrer">书籍详情</a>
               </Menu.Item>
             </Menu>
           </Affix>
-          <MainPage>{this.props.children}</MainPage>
+          {
+            (this.props.children && React.cloneElement(this.props.children, {callback:this.callback}))||<MainPage />
+          }
         </Content>
         <Footer><h1>广告出租位？</h1></Footer>
       </Layout>
