@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{Component} from 'react'
 import cookie from 'react-cookie'
 import { Layout ,Row , Col ,InputNumber ,Select,Input,Icon, Menu,Modal,Affix,BackTop} from 'antd'
 import '../assets/style/index.css'
@@ -12,7 +12,7 @@ const SubMenu = Menu.SubMenu
 const MenuItemGroup = Menu.ItemGroup
 const confirm = Modal.confirm
 
-export default class Index extends React.Component{
+export default class Index extends Component{
   state={
     current:'mail',
     borrowInfo:[]
