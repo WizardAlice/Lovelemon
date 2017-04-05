@@ -17,8 +17,9 @@
 .anticon-user{
     position: relative;
     font-size: 40px;
-    left: 1792px;
-    top:23px;
+    left: 1420px;
+    top: 23px;
+    cursor:pointer;
 }
 .denglu{
     position: relative;
@@ -62,3 +63,60 @@
     background-color:rgba(238, 193, 73, 0.73)!important;
     border-color: rgba(233, 200, 16, 0.95)!important;
 }
+.ant-upload-drag{
+    border:none!important;
+}
+.shangchuanicon{
+    font-size: 100px;
+    position: relative;
+    left: 9px;
+    color: #EECF52;
+    cursor: pointer;
+}
+.shangchuanicon2{
+    position: absolute;
+    left: 163px;
+    color: #EECF52;
+    font-size: 100px;
+    cursor: pointer;
+}
+.ant-card-bordered{
+    background-color:transparent;
+}
+.ant-table-thead tr th{
+    background-color:rgba(251, 249, 201, 0.67)!important;
+}
+.ant-table-placeholder{
+    background-color:transparent!important;
+}
+.ant-card-bordered{
+    position: relative;
+    left: 0px;
+    top: 95px;
+}
+
+.ant-input-search{
+    height: 48px;
+}
+.ant-dropdown-trigger{
+    position: relative;
+    left: 634px;
+    top: 251px;
+    height: 46px;
+}
+.highcharts-background{
+    fill: #7d7907;
+}
+.biaoqian{
+    position: relative;
+    left: 1413px;
+    top: -26px;
+    color: transparent;
+    &:hover{
+        color: transparent!important;
+    };
+}
+.baioqian:hover{
+    color: transparent!important;
+}
+    

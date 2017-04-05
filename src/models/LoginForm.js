@@ -35,7 +35,9 @@ export default class NormalLoginForm extends Component{
             this.loadingOff()
             message.success('登录成功！')
             cookie.save('userid',data.id)
+            cookie.save('username',data.name)
             this.props.callback()
+            let suibian = this.calllback3
           }
           else{
             this.loadingOff()

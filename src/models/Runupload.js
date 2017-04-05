@@ -25,9 +25,7 @@ export default class Runupload extends Component{
     let string = "http://localhost:3000/gettest?userid="+a
     return(
       <Dragger {...this.props} action={string}>
-        <Button>
-          <Icon type="upload" /> Click to Upload
-        </Button>
+          <Icon className="shangchuanicon" type="upload"  title="上传文件"/>
       </Dragger>
     )
   }
