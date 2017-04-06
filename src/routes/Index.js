@@ -118,8 +118,11 @@ export default class Index extends Component{
                   }
                 </SubMenu>):null
               }
-            <Menu.Item key="alipay">
+              <Menu.Item key="alipay">
                 <a href="/#/book" rel="noopener noreferrer">书籍详情</a>
+              </Menu.Item>
+              <Menu.Item key="manager">
+                <a href="/#/manager" rel="noopener noreferrer">管理员</a>
               </Menu.Item>
             </Menu>
           </Affix>

@@ -11,8 +11,8 @@ export default class MyUpload extends React.Component {
       action: 'http://localhost:3000/gettest',
       defaultFileList: [...this.state.fileList],
       multiple: true,
-      listType: 'picture',
-      accept: "image/png,image/jpg",
+      listType: this.props.listType,
+      accept: this.props.accept,
       data:{userid:cookie.load('userId')},
     }
     return (
