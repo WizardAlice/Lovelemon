@@ -21,7 +21,7 @@ const menu = (
 );
 const content = (
   <div>
-    <p> <a href="/userinfo.js">用户详情请点击这里</a></p>
+    <p> <a href="http://localhost:8000/#/userinfo">用户详情请点击这里</a></p>
   </div>
 );
   function handleButtonClick(e) {

@@ -119,4 +119,48 @@
 .baioqian:hover{
     color: transparent!important;
 }
-    
+#components-layout-demo-top-side-2 .logo {
+  width: 120px;
+  height: 31px;
+  background: #333;
+  border-radius: 6px;
+  margin: 16px 28px 16px 0;
+  float: left;
+}
+.backgroundyellow{
+    background-color:#7D7907!important;
+}
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: rgba(138, 138, 5, 0.69)!important;
+} 
+.cardinfo{
+    position: relative;
+    top: 0px;
+}
+.lanzi{
+    color:#3C8EE9;
+}
+.ant-carousel .slick-slide {
+  text-align: center;
+  height: 160px;
+  line-height: 160px;
+  background: #364d79;
+  color: #fff;
+  overflow: hidden;
+}
+.touxiang{
+    position: relative;
+    top: 0px;
+    height: 240px;
+}
+.usercard{
+    width: 888px!important;
+    position: relative;
+    left: -131px;
+    top: 0px;
+}
+.userbtn{
+    position:relative;
+    left:148px;
+    margin-top: 30px;
+}
