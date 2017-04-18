@@ -1,10 +1,12 @@
 import React,{ Component } from 'react'
-import { Form, Row, Col, Input, Button, Icon ,Upload,DatePicker} from 'antd'
+import { Form, Row, Col, Input, Button, Icon ,Upload,DatePicker,Radio} from 'antd'
 import cookie from 'react-cookie'
 import MyUpload from './upload'
+
+const RadioGroup = Radio.Group
 const FormItem = Form.Item
 
-export default class UpbookForm extends Component {
+export default class AddUser extends Component {
   handleSearch = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
@@ -27,7 +29,7 @@ export default class UpbookForm extends Component {
       <div key="1">
         <FormItem
           {...formItemLayout}
-          label="书籍封面"
+          label="头像"
         >
           <div className="dropbox" >
             {getFieldDecorator('img', {
@@ -35,7 +37,7 @@ export default class UpbookForm extends Component {
               getValueFromEvent: this.normFile,
               rules:[
                 {
-                  required: true, message: '封面不能为空',
+                  required: true, message: '管理员创建用户不能使用预设头像！',
                 }
               ]
             })(
@@ -45,41 +47,8 @@ export default class UpbookForm extends Component {
         </FormItem>
       </div>,
       <div key="2">
-        <FormItem {...formItemLayout} label="书名">
+        <FormItem {...formItemLayout} label="id">
           {getFieldDecorator("title",{rules:[
-            {
-              required: true, message: '书名不能为空',
-            }
-            ]})(
-            <Input placeholder="书名" style={{width:"75%"}}/>
-          )}
-        </FormItem>
-      </div>,
-      <div key="3">
-        <FormItem {...formItemLayout} label="类别">
-          {getFieldDecorator("subTitle",{rules:[
-            {
-              required: true, message: '类别不能为空',
-            }
-            ]})(
-            <Input placeholder="类别" style={{width:"75%"}}/>
-          )}
-        </FormItem>
-      </div>,
-      <div key="4">
-        <FormItem {...formItemLayout} label="作者">
-          {getFieldDecorator("author",{rules:[
-            {
-              required: true, message: '作者不能为空',
-            }
-            ]})(
-            <Input placeholder="作者" style={{width:"75%"}}/>
-          )}
-        </FormItem>
-      </div>,
-      <div key="5">
-        <FormItem {...formItemLayout} label="id(扫描条形码)">
-          {getFieldDecorator("id",{rules:[
             {
               required: true, message: 'id不能为空',
             }
@@ -88,47 +57,72 @@ export default class UpbookForm extends Component {
           )}
         </FormItem>
       </div>,
-      <div key="6">
-        <FormItem {...formItemLayout} label="出版社">
-          {getFieldDecorator("publish",{rules:[
+      <div key="3">
+        <FormItem {...formItemLayout} label="姓名">
+          {getFieldDecorator("subTitle",{rules:[
             {
-              required: true, message: '出版社不能为空',
+              required: true, message: '姓名不能为空',
             }
             ]})(
-            <Input placeholder="出版社" style={{width:"75%"}}/>
+            <Input placeholder="姓名" style={{width:"75%"}}/>
+          )}
+        </FormItem>
+      </div>,
+      <div key="4">
+        <FormItem {...formItemLayout} label="密码">
+          {getFieldDecorator("author",{rules:[
+            {
+              required: true, message: '密码不能为空',
+            }
+            ]})(
+            <Input placeholder="密码" style={{width:"75%"}}/>
+          )}
+        </FormItem>
+      </div>,
+      <div key="5">
+        <FormItem {...formItemLayout} label="性别">
+          {getFieldDecorator("id",{rules:[
+            {
+              required: true, message: '性别必须选',
+            }
+            ]})(
+            <RadioGroup>
+              <Radio value="1">男生</Radio>
+              <Radio value="1">女生</Radio>
+            </RadioGroup>
+          )}
+        </FormItem>
+      </div>,
+      <div key="6">
+        <FormItem {...formItemLayout} label="学院">
+          {getFieldDecorator("publish",{rules:[
+            {
+              required: true, message: '学院不能为空',
+            }
+            ]})(
+            <Input placeholder="学院" style={{width:"75%"}}/>
           )}
         </FormItem>
       </div>,
       <div key="7">
-        <FormItem {...formItemLayout} label="出版日期">
+        <FormItem {...formItemLayout} label="生日">
           {getFieldDecorator("publishdate",{rules:[
             {
-              required: true, message: '出版日期不能为空',
+              required: true, message: '生日不能为空',
             }
             ]})(
-            <DatePicker placeholder="选择出版日期"/>
+            <DatePicker placeholder="生日"/>
           )}
         </FormItem>
       </div>,
       <div key="8">
-        <FormItem {...formItemLayout} label="内容摘要">
+        <FormItem {...formItemLayout} label="当前住址">
           {getFieldDecorator("publishdate",{rules:[
             {
-              required: true, message: '内容摘要不能为空',
+              required: true, message: '当前住址不能为空',
             }
             ]})(
-            <Input type="textarea" style={{height:60}} placeholder="内容摘要"/>
-          )}
-        </FormItem>
-      </div>,
-      <div key="9">
-        <FormItem {...formItemLayout} label="关键词">
-          {getFieldDecorator("keyword",{rules:[
-            {
-              required: true, message: '必须设置关键词',
-            }
-            ]})(
-            <Input placeholder="关键词(用-隔开)" style={{width:"75%"}}/>
+            <Input  placeholder="当前住址"/>
           )}
         </FormItem>
       </div>

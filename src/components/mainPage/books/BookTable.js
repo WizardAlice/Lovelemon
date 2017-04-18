@@ -13,6 +13,27 @@ import HotChart from './hot/HotChart'
 import '../../../assets/style/bookTable.css'
 
 export default class BookTable extends Component{
+  state={
+    data:[]
+  }
+  componentDidMount(){
+    // fetch('',{
+    //   method: "GET",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   }
+    // }).then(data=>data.json).then((res)=>{
+    //   this.setState({data:res})
+    // })
+    // fetch('',{
+    //   method: "GET",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   }
+    // }).then(data=>data.json).then((res)=>{
+    //   this.setState({data:res})
+    // })
+  }
   render(){
     return(
       <Row justify="space-around" align="middle">

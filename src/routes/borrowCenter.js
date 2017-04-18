@@ -13,6 +13,7 @@ export default class BorrowCenter extends Component{
   }
   
   componentDidMount(){
+    console.log(this.state.book)
     if(this.state.book){  //特定书的时候
       fetch("http://localhost:3000/getbookInfo", {
         method: "POST",
