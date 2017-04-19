@@ -7,15 +7,31 @@ const FormItem = Form.Item
 export default class UpnewsForm extends Component {
   state = {
     expand: false,
+    appendix:null,
+    img:null
   }
 
   handleSearch = (e) => {
     e.preventDefault()
     this.props.form.validateFields((err, values) => {
-      console.log('Received values of form: ', values)
+      values.appendix = this.state.appendix
+      values.img = this.state.img
+      fetch('http://localhost:3000/uploadNews',{
+        method:'POST',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(values)
+      })
     })
   }
 
+  callbackImg=(name)=>{
+    this.setState({img:name})
+  }
+  callbackAppendix=(name)=>{
+    this.setState({appendix:name})
+  }
   handleReset = () => {
     this.props.form.resetFields()
   }
@@ -31,8 +47,7 @@ export default class UpnewsForm extends Component {
       labelCol: { span: 5 },
       wrapperCol: { span: 19 },
     }
-    const expand = this.state.expand
-    const shownCount = expand ? children.length : 4
+   
     // To generate mock Form.Item
     const children = [
       <Col span={8} key={1} offset={1}>
@@ -90,7 +105,7 @@ export default class UpnewsForm extends Component {
               valuePropName: 'fileList',
               getValueFromEvent: this.normFile,
             })(
-              <MyUpload listType='picture' accept="image/png,image/jpg"/>
+              <MyUpload callback={this.callbackImg} listType='picture' type="newsImg" accept="image/png,image/jpg"/>
             )}
           </div>
         </FormItem>
@@ -105,12 +120,14 @@ export default class UpnewsForm extends Component {
               valuePropName: 'fileList',
               getValueFromEvent: this.normFile,
             })(
-              <MyUpload  listType="text" accept=""/>
+              <MyUpload callback={this.callbackAppendix} type="appendix" listType="text" accept=""/>
             )}
           </div>
         </FormItem>
       </Col>
     ]
+    const expand = this.state.expand
+    const shownCount = expand ? children.length : 4
     return (
       <Form
         className="ant-advanced-search-form"

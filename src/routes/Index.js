@@ -92,7 +92,7 @@ export default class Index extends Component{
                 </Menu.Item>):null
               }
               {cookie.load('userId')?
-                (<SubMenu title={<span><Icon type="setting" />借阅信息</span>}>
+                (<SubMenu title={<span>借阅信息</span>}>
                   {data.length==0?null:
                     (<MenuItemGroup title="当前借阅">
                       {data[0].map((res,index)=>{
@@ -122,7 +122,7 @@ export default class Index extends Component{
                 <a href="/#/book" rel="noopener noreferrer">书籍详情</a>
               </Menu.Item>
               <Menu.Item key="manager">
-                <a href="/#/manager" rel="noopener noreferrer">管理员</a>
+                <a href="/#/manager" rel="noopener noreferrer"><Icon type="setting" />管理员</a>
               </Menu.Item>
             </Menu>
           </Affix>

@@ -14,7 +14,8 @@ import '../../../assets/style/bookTable.css'
 
 export default class BookTable extends Component{
   state={
-    data:[]
+    data1:[],
+    data2:[]
   }
   componentDidMount(){
     // fetch('',{
