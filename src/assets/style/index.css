@@ -86,3 +86,7 @@
 .registerNumber .ant-input-group-addon{
 	width: 26%;
 }
+.search{
+	height:28px;
+	top:-1px;
+}

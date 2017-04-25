@@ -1,6 +1,7 @@
 import React,{ Component } from 'react'
 import { Input ,Button} from 'antd'
-import AllBook from '../book/AllBook'
+import SearchResult from '../book/Table'
+import moment from 'moment'
 
 const Search = Input.Search
 
@@ -35,7 +36,7 @@ const columns = [{
   title : '出版日期',
   key : 'publishdate',
   dataIndex : 'publishdate',
-  width : 100
+  width : 100,
 },{
   title : '关键词',
   key : 'keyword',
@@ -71,7 +72,6 @@ export default class Delete extends Component {
     havaData:false
   }
   search(value){
-    console.log(value)
     fetch('http://localhost:3000/searchBook',{
       method: "POST",
       headers: {
@@ -93,7 +93,7 @@ export default class Delete extends Component {
           keyword:a.keyword[0],
           publish:a.publish[0],
           publishdate:a.publishDate[0],
-          registedate:a.registeDate,
+          registedate:moment(a.registeDate).format('YYYY-MM-DD'),
           key:a.id
         }
         this.state.searchResult.push(temp)
@@ -103,16 +103,14 @@ export default class Delete extends Component {
   }
 
   render(){
-    console.log(this.state.searchResult)
     return (
       <div>
         <Search placeholder="输入搜索内容" style={{width:300}} onSearch={value => this.search(value)}/>
         {
           this.state.searchResult.length==0?null:
             <div>
-              <AllBook data={this.state.searchResult} styles={{height:50}} scroll={{y:500}} columns={columns}/>
+              <SearchResult data={this.state.searchResult}  columns={columns}/>
             </div>
-          
         }
       </div>
     )

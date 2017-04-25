@@ -10,7 +10,7 @@ import Manager from './routes/Manager'
 function RouterConfig({ history }) {
   return (
     <Router history={history}>
-      <Route path="/" component={Index}>
+      <Route path="/" component={Index}>z
       	<Route path="/login" component={ Login }/>
       	<Route path="/register" component={ Register }/>
       	<Route path="/userCenter" component={ UserInfo }/>

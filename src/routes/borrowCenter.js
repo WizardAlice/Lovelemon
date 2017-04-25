@@ -1,6 +1,6 @@
 import React,{ Component } from 'react'
 import { Button } from 'antd'
-import AllBook from '../components/book/AllBook'
+import AllBook from '../components/book/Table'
 import OneBook from '../components/book/OneBook'
 
 const columns = [{
@@ -82,6 +82,7 @@ export default class BorrowCenter extends Component{
     this.props.callback(this.state.current)
   }
   render(){
+    console.log(this.props)
     let ceternBook = this.props.location.query.bookid?this.props.location.query.bookid:null
     if(ceternBook){
        return(

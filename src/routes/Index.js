@@ -15,7 +15,9 @@ const confirm = Modal.confirm
 export default class Index extends Component{
   state={
     current:'mail',
-    borrowInfo:[]
+    borrowInfo:[],
+    searchType:"book",
+    searchResult:[]
   }
   handleClick =(e)=>{
     this.setState({
@@ -41,6 +43,46 @@ export default class Index extends Component{
       })      
     }
   }
+
+  changeSearch=(values)=>{
+    this.props.history.pushState({suibian:"123"}, '/book')
+    // this.context.router.replaceWith('/');
+    this.setState({book:values})
+  }
+
+  search(value){
+    let type = this.state.searchType
+    if(type=="book"){
+      fetch('http://localhost:3000/searchBook',{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({content:value})
+      }).then((res)=>{
+        return res.json()
+      }).then((data)=>{
+        this.setState({searchResult:[]})
+        data.docs.map((a)=>{
+          let temp = {
+            bookname:a.bookName[0],
+            id:a.id,
+            author:a.author[0],
+            abstract:a.abstract[0],
+            bookState:a.bookState,
+            img:a.img[0],
+            keyword:a.keyword[0],
+            publish:a.publish[0],
+            publishdate:a.publishDate[0],
+            registedate:moment(a.registeDate).format('YYYY-MM-DD'),
+            key:a.id
+          }
+          this.state.searchResult.push(temp)
+        })
+      })
+    }
+  }
+
   showConfirm() {
     confirm({
       title: '是否退出登录?',
@@ -51,6 +93,7 @@ export default class Index extends Component{
       onCancel() {}
     })
   } 
+
 
   render(){
     let data = this.state.borrowInfo
@@ -65,12 +108,12 @@ export default class Index extends Component{
             </Col>
             <Col span={12} className="ColLogin">
               <InputGroup compact className="InputGroup1">
-                <Select defaultValue="书籍搜索">
+                <Select defaultValue="书籍搜索" onChange={this.changeSearch}>
                   <Option value="book">书籍搜索</Option>
                   <Option value="user">用户搜索</Option>
                   <Option value="news">新闻搜索</Option>
                 </Select>
-                <Search className="search" placeholder="input search text" style={{ width: 200 }} onSearch={value => console.log(value)} />
+                <Search className="search" placeholder="input search text" style={{ width: 200 }} onSearch={value => {this.search(value)}} />
               </InputGroup>
               {cookie.load('userId')?(
                 <span><a href='#' onClick={this.showConfirm} className="login"><Icon type="user"/></a><img className="userImg" src={"http://ofdukoorb.bkt.clouddn.com/"+cookie.load('userimg')}></img></span>
