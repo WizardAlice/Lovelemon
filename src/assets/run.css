@@ -1,6 +1,6 @@
 .ant-layout-header{
     height:456px;
-    background: url(./1.jpg) 100%;
+    background: url(./1.png) 100%;
 }
 .ant-card {    
     position: relative;
@@ -11,7 +11,7 @@
     min-height:550px;
     height:15px;
     background:none;
-    background-color: #7d7907;
+    background-color: black;
     
 }
 .anticon-user{
@@ -70,7 +70,7 @@
     font-size: 100px;
     position: relative;
     left: 9px;
-    color: #EECF52;
+    color: #122A5A;
     cursor: pointer;
 }
 .shangchuanicon2{
@@ -84,7 +84,7 @@
     background-color:transparent;
 }
 .ant-table-thead tr th{
-    background-color:rgba(251, 249, 201, 0.67)!important;
+    background-color:#122A5A!important;
 }
 .ant-table-placeholder{
     background-color:transparent!important;
@@ -105,7 +105,7 @@
     height: 46px;
 }
 .highcharts-background{
-    fill: #7d7907;
+    fill: black;
 }
 .biaoqian{
     position: relative;
@@ -128,7 +128,7 @@
   float: left;
 }
 .backgroundyellow{
-    background-color:#7D7907!important;
+    background-color:rgba(94, 104, 157, 0.76)!important;
 }
 .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
     background-color: rgba(138, 138, 5, 0.69)!important;
@@ -163,4 +163,35 @@
     position:relative;
     left:148px;
     margin-top: 30px;
+}
+.ant-card-bordered {
+    border: 1px solid rgba(18, 42, 90, 0.36);
+}
+.pinkzi{
+   color: #feb8a9!important;
+}
+.ant-table-thead > tr.ant-table-row-hover > td, .ant-table-tbody > tr.ant-table-row-hover > td, .ant-table-thead > tr:hover > td, .ant-table-tbody > tr:hover > td {
+    background: #CC8AA4!important;
+}
+.backgroundblack{
+    background: black!important;
+
+}
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: rgb(125, 112, 158)!important;
+}
+.baizi{
+    color:white!important;
+}
+.userinfounder{
+    height:510px;
+}
+.fuye{
+    height:424px!important;
+}
+.uploadpage{
+    position: relative;
+    top: -1.5rem;
+    width: 104%;
+    left: -2rem;
 }

@@ -85,7 +85,7 @@ export default class Rundownload extends Component{
   render(){
     let data = this.state.data
     return(
-      <Table dataSource={data} columns={Columns} />
+      <Table className="pinkzi" dataSource={data} columns={Columns} />
     )
   }
 

@@ -21,7 +21,7 @@ const menu = (
 );
 const content = (
   <div>
-    <p> <a href="http://localhost:8000/#/userinfo">用户详情请点击这里</a></p>
+    <p> {cookie.load('userid')?(<a href="http://localhost:8000/#/userinfo">用户详情请点击这里</a>):(<span>请先登录</span>)}</p>
   </div>
 );
   function handleButtonClick(e) {
@@ -39,9 +39,42 @@ export default class Runindex extends Component{
     ModalText: '',
     visible: false,
     suibian:false,
-    shuaxin:false
+    shuaxin:false,
+    searchResult:[],
+    havaData:false
   }
-    calllback3=()=>{
+
+  search(value){
+    fetch('http://localhost:3000/searchUser',{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({content:value})
+    }).then((res)=>{
+      return res.json()
+    }).then((data)=>{
+      this.setState({searchResult:[]})
+      data.docs.map((a)=>{
+        let temp = {
+          name:a.name,
+          id:a.id,
+          gender:a.gender,
+          phone:a.phone,
+          address:a.address,
+          img:a.img,
+          department:a.department,
+          birthdate:moment(a.birthdate).format("YYYY-MM-DD"),
+          key:a.id
+        }
+        this.state.searchResult.push(temp)
+      })
+      this.setState({havaData:true})
+    })
+  }
+
+
+  calllback3=()=>{
     let shuaxin = !this.state.shuaxin
   }
   calllback2=()=>{
@@ -105,7 +138,7 @@ export default class Runindex extends Component{
                   <WrappedNormalLoginForm callback={this.callback}/>   
                        
                   </Modal>
-                    <Search placeholder="input search text" style={{ width: 310 ,position: "relative",left: 578,top: 316}} onSearch={value => console.log(value)}/>
+                    <Search placeholder="input search text" style={{ width: 310 ,position: "relative",left: 578,top: 316}} onSearch={value => this.search(value)}/>
                     <div>
                         <Dropdown overlay={menu}>
                           <Button style={{ marginLeft: 8 }}>
@@ -137,7 +170,6 @@ export default class Runindex extends Component{
                      </Row>
                   </div>
               </Content>
-              <Footer>Footer</Footer>
             </Layout>
         )
 
