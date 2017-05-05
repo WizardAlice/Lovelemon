@@ -10,8 +10,19 @@ export default class AddUser extends Component {
   handleSearch = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
-      console.log('Received values of form: ', values);
-    });
+      console.log('Received values of form: ', values)
+      fetch('/addUser',{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(values)
+      }).then((res) => {
+        return res.json()
+      }).then((data) => {
+        console.log(data)
+      })
+    })
   }
 
   handleReset = () => {

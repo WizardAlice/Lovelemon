@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import cookie from 'react-cookie'
 import { Layout ,Row , Col ,InputNumber ,Select,Input,Icon, Menu,Modal,Affix,BackTop} from 'antd'
+import moment from 'moment'
 import '../assets/style/index.css'
 import MainPage from '../components/mainPage/MainPage'
 
@@ -45,7 +46,6 @@ export default class Index extends Component{
   }
 
   changeSearch=(values)=>{
-    this.props.history.pushState({suibian:"123"}, '/book')
     // this.context.router.replaceWith('/');
     this.setState({book:values})
   }
@@ -65,7 +65,7 @@ export default class Index extends Component{
         this.setState({searchResult:[]})
         data.docs.map((a)=>{
           let temp = {
-            bookname:a.bookName[0],
+            bookName:a.bookName[0],
             id:a.id,
             author:a.author[0],
             abstract:a.abstract[0],
@@ -79,6 +79,7 @@ export default class Index extends Component{
           }
           this.state.searchResult.push(temp)
         })
+        this.props.history.pushState(null, '/book')
       })
     }
   }
@@ -170,7 +171,8 @@ export default class Index extends Component{
             </Menu>
           </Affix>
           {
-            (this.props.children && React.cloneElement(this.props.children, {callback:this.callback}))||<MainPage />
+            this.state.searchResult.length==0?((this.props.children && React.cloneElement(this.props.children, {callback: this.callback}))||<MainPage />):
+            ((this.props.children && React.cloneElement(this.props.children, {callback: this.callback,data: this.state.searchResult}))||<MainPage />) 
           }
         </Content>
         <Footer><h1>广告出租位？</h1></Footer>

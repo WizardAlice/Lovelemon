@@ -11,17 +11,22 @@ export default class UpnewsForm extends Component {
     img:null
   }
 
-  handleSearch = (e) => {
+  handleSubmit = (e) => {
     e.preventDefault()
     this.props.form.validateFields((err, values) => {
       values.appendix = this.state.appendix
       values.img = this.state.img
+      console.log(values)
       fetch('http://localhost:3000/uploadNews',{
         method:'POST',
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(values)
+      }).then((res)=>{
+        return res.json()
+      }).then((data)=>{
+        console.log(data)
       })
     })
   }
@@ -131,7 +136,7 @@ export default class UpnewsForm extends Component {
     return (
       <Form
         className="ant-advanced-search-form"
-        onSubmit={this.handleSearch}
+        onSubmit={this.handleSubmit}
       >
         <Row gutter={40}>
 

@@ -1,5 +1,6 @@
 import React,{ Component } from 'react'
-import { Button } from 'antd'
+import { Button , message } from 'antd'
+import cookie from 'react-cookie'
 import AllBook from '../components/book/Table'
 import OneBook from '../components/book/OneBook'
 
@@ -39,9 +40,47 @@ const columns = [{
   key : 'collect',
   width : 50,
   render : (text,record) => (
-    <Button >收藏</Button>
+    <div>
+      <Button onClick={() => collect(record.id)} style={{marginBottom:10}} ghost>收藏</Button><br />
+      <Button onClick={() => order(record.id)} ghost>预约</Button>
+    </div>
   )
 }]
+
+let collect = (a)=> {
+  if(cookie.load('userId'))
+    {fetch("http://localhost:3000/collect", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({userid: cookie.load('userId'), bookid: a})
+          }).then((res) => {
+            return res.json()
+          }).then((data) => {
+            message.success(data.answer)
+          })
+    }
+  else message.error("请先登录")
+}
+
+let order = (a)=> {
+  if(cookie.load('userId'))
+    {fetch("http://localhost:3000/order", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({userid: cookie.load('userId'), bookid: a})
+      }).then((res) => {
+        return res.json()
+      }).then((data) => {
+        message.success(data.answer)
+      })
+    }
+  else message.error("请先登录")  
+}
+
 export default class BorrowCenter extends Component{
   constructor(props){
     super(props)
@@ -51,9 +90,8 @@ export default class BorrowCenter extends Component{
       current:'alipay'
     }
   }
-  
+
   componentDidMount(){
-    console.log(this.state.book)
     if(this.state.book){  //特定书的时候
       fetch("http://localhost:3000/getbookInfo", {
         method: "POST",
@@ -67,7 +105,7 @@ export default class BorrowCenter extends Component{
         this.setState({data:data})
       })
     }
-    else{
+    else if(typeof this.props.data == 'undefined'){
       fetch("http://localhost:3000/getallbook", {  //没有特定书的时候请求所有的书的信息
         method: "GET",
         headers: {
@@ -76,22 +114,27 @@ export default class BorrowCenter extends Component{
       }).then((res)=>{
         return res.json()
       }).then((data)=>{
+        data.map((a, index) => a.key= index)
         this.setState({data:data})
       })
     }
     this.props.callback(this.state.current)
   }
   render(){
-    console.log(this.props)
     let ceternBook = this.props.location.query.bookid?this.props.location.query.bookid:null
     if(ceternBook){
        return(
         <OneBook data={this.state.data}/>
       )
     }
-    else{
+    else if(typeof this.props.data == 'undefined'){
       return(
         <AllBook data={this.state.data} columns={columns} styles={{width:1400,marginLeft:150}}/>
+      )
+    }
+    else {
+      return(
+        <AllBook data={this.props.data} columns={columns} styles={{width:1400,marginLeft:150}}/>
       )
     }
   }
